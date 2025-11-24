@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="CarParkingSimulator"
+run/main_scene="uid://dno1evuy3py2e"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"

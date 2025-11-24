@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbvm6lavjwvdb"]
+
+[ext_resource type="Script" uid="uid://dmb3x54ud5dx6" path="res://scripts/rfid_card.gd" id="1_7p64d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j8h7"]
+bg_color = Color(0.82605994, 0.82606006, 0.8260599, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy25p"]
+size = Vector2(152, 80)
+
+[node name="RFIDCard" type="Area2D"]
+script = ExtResource("1_7p64d")
+
+[node name="Setting" type="ColorRect" parent="."]
+visible = false
+z_index = 10
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_right = 384.0
+offset_bottom = 120.0
+grow_vertical = 2
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 109.0
+
+[node name="GridContainer" type="GridContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Card No: "
+
+[node name="LineEditCardNo" type="LineEdit" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Setting/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Card ID"
+
+[node name="LineEditCardID" type="LineEdit" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonOK" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="ButtonCancel" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 80.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_3j8h7")
+
+[node name="LabelCardNo" type="Label" parent="Control/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "No.0001"
+
+[node name="LabelCardID" type="Label" parent="Control/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(76, 40)
+shape = SubResource("RectangleShape2D_xy25p")

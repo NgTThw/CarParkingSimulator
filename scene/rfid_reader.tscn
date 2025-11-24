@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqyxtkeejjn36"]
+
+[ext_resource type="Script" uid="uid://cvl6r4bterx3a" path="res://scripts/rfid_reader.gd" id="1_7f5es"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7f5es"]
+bg_color = Color(0.12591091, 0.12591082, 0.12591082, 1)
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcjmh"]
+resource_local_to_scene = true
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_438fk"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.7, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2sgx"]
+size = Vector2(112, 176)
+
+[node name="RFIDReader" type="Area2D"]
+script = ExtResource("1_7f5es")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 192.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_7f5es")
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 63.0
+offset_bottom = 57.0
+text = "RFID
+Reader"
+
+[node name="LabelCOM" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = -17.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "COM1"
+
+[node name="LED" type="Panel" parent="Control/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 32.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fcjmh")
+
+[node name="Panel" type="Panel" parent="Control/ColorRect/LED"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_438fk")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 48.0
+offset_bottom = 223.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(64, 96)
+shape = SubResource("RectangleShape2D_q2sgx")

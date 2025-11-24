@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://5hm6f7qpi3yf"]
+
+[ext_resource type="Script" uid="uid://bwj0pqgoyahlh" path="res://scripts/button_add.gd" id="1_6ddgl"]
+
+[node name="ButtonAdd" type="Button"]
+text = "RFID Card"
+script = ExtResource("1_6ddgl")
