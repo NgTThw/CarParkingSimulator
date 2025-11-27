@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://byqdqco78sbru"]
+[gd_scene load_steps=12 format=3 uid="uid://byqdqco78sbru"]
 
 [ext_resource type="Script" uid="uid://bfhvdclg0bdtq" path="res://scripts/barrier.gd" id="1_l6p4b"]
 [ext_resource type="StyleBox" uid="uid://csc6q3a1nuhvi" path="res://Styles/select_effect.tres" id="2_kmie8"]
+[ext_resource type="Script" uid="uid://qmmjgbpogmfi" path="res://scripts/pin.gd" id="3_nceho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nceho"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
@@ -38,8 +39,29 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1cmg"]
+bg_color = Color(0.0627451, 0.7254902, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsvkl"]
+bg_color = Color(1, 0.07058824, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcafy"]
+bg_color = Color(0.43311062, 0.5697413, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Barrier" type="Panel" node_paths=PackedStringArray("setting", "button_ok", "button_cancel", "button_del", "select_effect")]
-offset_right = 128.0
+offset_right = 112.0
 offset_bottom = 240.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nceho")
 script = ExtResource("1_l6p4b")
@@ -155,9 +177,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kmie8")
 [node name="LED" type="Panel" parent="."]
 modulate = Color(1, 0.25882354, 0.2784314, 1)
 layout_mode = 0
-offset_left = 32.0
+offset_left = 24.0
 offset_top = 24.0
-offset_right = 96.0
+offset_right = 88.0
 offset_bottom = 88.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_355g0")
@@ -167,10 +189,67 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -8.0
-offset_top = 88.0
-offset_right = 8.0
+offset_left = -4.0
+offset_top = 80.0
+offset_right = 4.0
 offset_bottom = 160.0
 grow_horizontal = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ddk3p")
+
+[node name="PinOpen" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 168.0
+offset_right = 116.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1cmg")
+script = ExtResource("3_nceho")
+metadata/_custom_type_script = "uid://qmmjgbpogmfi"
+
+[node name="Label" type="Label" parent="PinOpen"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 10
+text = "Open"
+
+[node name="PinClose" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 188.0
+offset_right = 116.0
+offset_bottom = 196.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsvkl")
+script = ExtResource("3_nceho")
+metadata/_custom_type_script = "uid://qmmjgbpogmfi"
+
+[node name="Label" type="Label" parent="PinClose"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[node name="PinLoop" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 208.0
+offset_right = 116.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcafy")
+script = ExtResource("3_nceho")
+metadata/_custom_type_script = "uid://qmmjgbpogmfi"
+
+[node name="Label" type="Label" parent="PinLoop"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 10
+text = "Loop"
