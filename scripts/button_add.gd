@@ -3,10 +3,10 @@ class_name ButtonAdd
 
 @export var object: PackedScene
 
-signal clicked(PackedScene)
+signal add_object(PackedScene)
 
 func _ready() -> void:
 	self.pressed.connect(self._on_pressed)
 
 func _on_pressed() -> void:
-	self.clicked.emit(object)
+	self.add_object.emit(object)

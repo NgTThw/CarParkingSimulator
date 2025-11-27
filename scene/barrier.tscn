@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=3 uid="uid://byqdqco78sbru"]
+
+[ext_resource type="Script" uid="uid://bfhvdclg0bdtq" path="res://scripts/barrier.gd" id="1_l6p4b"]
+[ext_resource type="StyleBox" uid="uid://csc6q3a1nuhvi" path="res://Styles/select_effect.tres" id="2_kmie8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nceho"]
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwn6d"]
+bg_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmie8"]
+bg_color = Color(0.6522269, 2.7675183e-06, 4.3317675e-07, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_355g0"]
+bg_color = Color(0.9999997, 0.9883755, 0.98636657, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddk3p"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Barrier" type="Panel" node_paths=PackedStringArray("setting", "button_ok", "button_cancel", "button_del", "select_effect")]
+offset_right = 128.0
+offset_bottom = 240.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nceho")
+script = ExtResource("1_l6p4b")
+setting = NodePath("Setting")
+button_ok = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonOk")
+button_cancel = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonCancel")
+button_del = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonDel")
+select_effect = NodePath("SelectEffect")
+metadata/_custom_type_script = "uid://b4dga4rmnvq0a"
+
+[node name="Setting" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_right = 304.0
+offset_bottom = 88.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 166.0
+offset_bottom = 48.0
+theme_override_constants/separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="ButtonOpen" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Open"
+
+[node name="ButtonClose" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Close"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonOk" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "OK"
+
+[node name="ButtonCancel" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Cancel"
+
+[node name="ButtonDel" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Delete"
+
+[node name="SelectEffect" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_kmie8")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(64, 40)
+
+[node name="Arm" type="Panel" parent="Marker2D"]
+z_index = -1
+offset_left = -224.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gwn6d")
+
+[node name="Panel" type="Panel" parent="Marker2D/Arm"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 24.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kmie8")
+
+[node name="Panel3" type="Panel" parent="Marker2D/Arm"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 24.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kmie8")
+
+[node name="Panel2" type="Panel" parent="Marker2D/Arm"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 24.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kmie8")
+
+[node name="LED" type="Panel" parent="."]
+modulate = Color(1, 0.25882354, 0.2784314, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 96.0
+offset_bottom = 88.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_355g0")
+
+[node name="Panel" type="Panel" parent="LED"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 88.0
+offset_right = 8.0
+offset_bottom = 160.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddk3p")
