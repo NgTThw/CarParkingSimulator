@@ -19,6 +19,7 @@ var value: bool = false:
 		return value
 
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	self.gui_input.connect(self._on_gui_input)
 	wire.width = 3.0
 	wire.gradient = Gradient.new()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqqdf0nr3fcx0"]
+[gd_scene load_steps=7 format=3 uid="uid://bqqdf0nr3fcx0"]
 
 [ext_resource type="Script" uid="uid://defngc7hhce8u" path="res://scripts/smart_control.gd" id="1_8koc2"]
 [ext_resource type="StyleBox" uid="uid://csc6q3a1nuhvi" path="res://Styles/select_effect.tres" id="1_wxphp"]
 [ext_resource type="Script" uid="uid://qmmjgbpogmfi" path="res://scripts/pin.gd" id="3_2iytt"]
+[ext_resource type="PackedScene" uid="uid://d3cpntfbhflvr" path="res://scene/warning.tscn" id="4_o3co4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8koc2"]
 bg_color = Color(1, 1, 1, 1)
@@ -34,8 +35,8 @@ metadata/_custom_type_script = "uid://b4dga4rmnvq0a"
 visible = false
 layout_mode = 0
 offset_left = 236.0
-offset_right = 416.0
-offset_bottom = 208.0
+offset_right = 440.0
+offset_bottom = 304.0
 mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Setting"]
@@ -51,47 +52,178 @@ layout_mode = 2
 columns = 4
 
 [node name="G1" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "G1"
 
 [node name="G2" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "G2"
 
 [node name="G3" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "G3"
 
 [node name="G4" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "G4"
 
 [node name="G5" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "G5"
 
 [node name="G6" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "G6"
 
 [node name="G7" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 text = "G7"
 
 [node name="G8" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+text = "G8"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Output click"
+
+[node name="GridContainer3" type="GridContainer" parent="Setting/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG1" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer"]
+layout_mode = 2
+text = "G1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG2" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer2"]
+layout_mode = 2
+text = "G2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG3" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer3"]
+layout_mode = 2
+text = "G3"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG4" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer4"]
+layout_mode = 2
+text = "G4"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG5" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer5"]
+layout_mode = 2
+text = "G5"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG6" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer6"]
+layout_mode = 2
+text = "G6"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG7" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer7"]
+layout_mode = 2
+text = "G7"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ClickG8" type="CheckBox" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+button_pressed = true
+
+[node name="Label" type="Label" parent="Setting/VBoxContainer/VBoxContainer/GridContainer3/HBoxContainer8"]
+layout_mode = 2
 text = "G8"
 
 [node name="GridContainer2" type="GridContainer" parent="Setting/VBoxContainer"]
@@ -102,21 +234,26 @@ columns = 2
 layout_mode = 2
 text = "IP"
 
-[node name="LineEdit" type="LineEdit" parent="Setting/VBoxContainer/GridContainer2"]
+[node name="LineEditIP" type="LineEdit" parent="Setting/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
+text = "127.0.0.1"
 
 [node name="Label2" type="Label" parent="Setting/VBoxContainer/GridContainer2"]
 layout_mode = 2
 text = "Port"
 
-[node name="LineEdit2" type="LineEdit" parent="Setting/VBoxContainer/GridContainer2"]
+[node name="LineEditPort" type="LineEdit" parent="Setting/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+text = "81"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Setting/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ButtonOk" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -162,8 +299,10 @@ anchor_bottom = 1.0
 offset_top = -52.0
 offset_bottom = -52.0
 grow_vertical = 0
+mouse_filter = 1
 
-[node name="Pin" type="Panel" parent="Control"]
+[node name="PinG1" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,11 +315,12 @@ offset_right = 4.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin"]
+[node name="Label" type="Label" parent="Control/PinG1"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = -8.0
@@ -189,7 +329,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G1"
 
-[node name="Pin2" type="Panel" parent="Control"]
+[node name="PinG2" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,11 +343,12 @@ offset_right = 4.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin2"]
+[node name="Label" type="Label" parent="Control/PinG2"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = -8.0
@@ -215,7 +357,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G2"
 
-[node name="Pin3" type="Panel" parent="Control"]
+[node name="PinG3" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -227,11 +370,12 @@ offset_top = -8.0
 offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin3"]
+[node name="Label" type="Label" parent="Control/PinG3"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = -8.0
@@ -240,7 +384,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G3"
 
-[node name="Pin4" type="Panel" parent="Control"]
+[node name="PinG4" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -253,11 +398,12 @@ offset_right = 4.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin4"]
+[node name="Label" type="Label" parent="Control/PinG4"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = -8.0
@@ -266,7 +412,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G4"
 
-[node name="Pin5" type="Panel" parent="Control"]
+[node name="PinG5" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -279,11 +426,12 @@ offset_right = 228.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin5"]
+[node name="Label" type="Label" parent="Control/PinG5"]
 layout_mode = 0
 offset_left = -32.0
 offset_top = -8.0
@@ -292,7 +440,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G5"
 
-[node name="Pin6" type="Panel" parent="Control"]
+[node name="PinG6" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -305,11 +454,12 @@ offset_right = 228.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin6"]
+[node name="Label" type="Label" parent="Control/PinG6"]
 layout_mode = 0
 offset_left = -32.0
 offset_top = -8.0
@@ -318,7 +468,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G6"
 
-[node name="Pin7" type="Panel" parent="Control"]
+[node name="PinG7" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -330,11 +481,12 @@ offset_top = -8.0
 offset_right = 228.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin7"]
+[node name="Label" type="Label" parent="Control/PinG7"]
 layout_mode = 0
 offset_left = -32.0
 offset_top = -8.0
@@ -343,7 +495,8 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "G7"
 
-[node name="Pin8" type="Panel" parent="Control"]
+[node name="PinG8" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -356,11 +509,12 @@ offset_right = 228.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2iytt")
 script = ExtResource("3_2iytt")
 metadata/_custom_type_script = "uid://qmmjgbpogmfi"
 
-[node name="Label" type="Label" parent="Control/Pin8"]
+[node name="Label" type="Label" parent="Control/PinG8"]
 layout_mode = 0
 offset_left = -32.0
 offset_top = -8.0
@@ -383,17 +537,24 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "IP:"
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
+[node name="LabelIP" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "127.0.0.1"
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Port"
+text = "Port:"
 
-[node name="Label4" type="Label" parent="HBoxContainer"]
+[node name="LabelPort" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "81"
+
+[node name="Warning" parent="." instance=ExtResource("4_o3co4")]
+layout_mode = 1

@@ -11,15 +11,29 @@ class_name Barrier
 @onready var pin_loop: Pin = $PinLoop
 
 var loop_on: bool = false
-
+var is_closing: bool = false
 
 func _ready() -> void:
 	super._ready()
 	button_open.pressed.connect(self.open)
 	button_close.pressed.connect(self.close)
-	pin_open.value_changed.connect(func(v): if v: self.open())
-	pin_close.value_changed.connect(func(v): if v: self.close())
+	pin_open.value_changed.connect(self._on_pin_open_value_changed)
+	pin_close.value_changed.connect(self._on_pin_close_value_changed)
 	pin_loop.value_changed.connect(self._on_loop)
+
+func _on_pin_open_value_changed(value: bool) -> void:
+	if value:
+		pin_open.get_child(0)['theme_override_colors/font_color'] = Color.SEA_GREEN
+		self.open()
+	else:
+		pin_open.get_child(0)['theme_override_colors/font_color'] = Color.WHITE
+
+func _on_pin_close_value_changed(value: bool) -> void:
+	if value:
+		pin_close.get_child(0)['theme_override_colors/font_color'] = Color.SEA_GREEN
+		self.close()
+	else:
+		pin_close.get_child(0)['theme_override_colors/font_color'] = Color.WHITE
 
 func open() -> void:
 	var tween: Tween = get_tree().create_tween()
@@ -29,15 +43,26 @@ func open() -> void:
 	tween.tween_callback(func(): led.modulate = Color("00b056"))
 
 func close() -> void:
+	if loop_on:
+		return
+	is_closing = true
 	var tween: Tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(marker, "rotation_degrees", 0, 0.3)
+	tween.tween_callback(func(): is_closing = false)
 	led.modulate = Color("ff4247")
+	tween.tween_callback(func(): led.modulate = Color("ff4247"))
 
 func _on_loop(v: bool) -> void:
+	if v:
+		pin_loop.get_child(0)['theme_override_colors/font_color'] = Color.SEA_GREEN
+	else:
+		pin_loop.get_child(0)['theme_override_colors/font_color'] = Color.WHITE
 	if v and not loop_on:
 		loop_on = true
+		if is_closing:
+			self.open()
 	elif not v and loop_on:
 		loop_on = false
 		self.close()
