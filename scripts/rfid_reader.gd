@@ -9,27 +9,40 @@ class_name RFIDReader
 @onready var com: String:
 	set(new):
 		com = new
-		self.label_com.text = com
+		label_com.text = com
 	get:
 		return com
+var serial: GdSerial = GdSerial.new()
 
-signal swipe_card(RFIDCard)
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	super._ready()
-	self.reader.area_entered.connect(self._on_area_entered)
-	self.setting_submit.connect(self._on_setting_submit)
-	self.setting_cancel.connect(self._on_setting_cancel)
+	reader.area_entered.connect(self._on_area_entered)
+	setting_submit.connect(self._on_setting_submit)
+	setting_cancel.connect(self._on_setting_cancel)
+	serial.set_baud_rate(9600)
+	for port in Global.list_ports:
+		option_com.add_item(port)
+	option_com.select(0)
+	com = option_com.text
 
 func _on_setting_submit() -> void:
-	self.com = self.option_com.text
+	com = option_com.text
+	if serial.open():
+		serial.close()
+	serial.set_port(com)
 
 func _on_setting_cancel() -> void:
-	self.option_com.text = com
+	option_com.text = com
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.get_parent() is RFIDCard:
-		swipe_card.emit(area.get_parent())
+	var card: Node = area.get_parent()
+	if card is RFIDCard:
+		if serial.open():
+			serial.writeline(card.card_id)
 		led["theme_override_styles/panel"]["bg_color"] = Color.GREEN
-		get_tree().create_timer(0.3).timeout.connect(
-			func(): led["theme_override_styles/panel"]["bg_color"] = Color.RED)
+		await get_tree().create_timer(0.3).timeout
+		led["theme_override_styles/panel"]["bg_color"] = Color.RED
+
+func _exit_tree() -> void:
+	serial.close()

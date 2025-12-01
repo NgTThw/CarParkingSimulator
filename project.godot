@@ -21,6 +21,7 @@ Global="*res://scripts/global.gd"
 [layer_names]
 
 2d_physics/layer_1="Card"
+2d_physics/layer_2="Car"
 
 [rendering]
 

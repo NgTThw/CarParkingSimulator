@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dno1evuy3py2e"]
+[gd_scene load_steps=11 format=3 uid="uid://dno1evuy3py2e"]
 
 [ext_resource type="Script" uid="uid://cid4sq088l5k2" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://5hm6f7qpi3yf" path="res://scene/button_add.tscn" id="2_0xm2m"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bqyxtkeejjn36" path="res://scene/rfid_reader.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bqqdf0nr3fcx0" path="res://scene/smart_control.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://byqdqco78sbru" path="res://scene/barrier.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ckgj5u7qnleoc" path="res://scene/loop_detector.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cm2kx2wm4we1h" path="res://scene/car.tscn" id="9_kek77"]
 
 [sub_resource type="TileSet" id="TileSet_7dm0k"]
 
@@ -66,3 +68,13 @@ object = ExtResource("6_7mycd")
 layout_mode = 2
 text = "Barrier"
 object = ExtResource("7_272bh")
+
+[node name="LoopDetector" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+text = "Loop Detector"
+object = ExtResource("8_5vw27")
+
+[node name="Car" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+text = "Auto"
+object = ExtResource("9_kek77")

@@ -5,7 +5,7 @@ enum MouseState {
 	WIRING,
 	DRAGGING
 }
-
+var list_ports: PackedStringArray
 var mouse_state: MouseState = MouseState.FREE
 var current_wiring: Pin:
 	set(new):

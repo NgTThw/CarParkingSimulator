@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckgj5u7qnleoc"]
+
+[ext_resource type="Script" uid="uid://bmhbtiqkt06g5" path="res://scripts/loop_detector.gd" id="1_amr2t"]
+[ext_resource type="StyleBox" uid="uid://csc6q3a1nuhvi" path="res://Styles/select_effect.tres" id="2_amr2t"]
+[ext_resource type="Script" uid="uid://qmmjgbpogmfi" path="res://scripts/pin.gd" id="3_uxda2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amr2t"]
+bg_color = Color(0.07058824, 0.05490196, 0.050980393, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qay60"]
+radius = 48.0
+height = 272.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juikx"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gookr"]
+bg_color = Color(0, 0.24705882, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhgcx"]
+bg_color = Color(0.43137255, 0.5686275, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="LoopDetector" type="Panel" node_paths=PackedStringArray("setting", "button_ok", "button_cancel", "button_del", "select_effect")]
+offset_right = 48.0
+offset_bottom = 84.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_amr2t")
+script = ExtResource("1_amr2t")
+setting = NodePath("Setting")
+button_ok = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonOk")
+button_cancel = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonCancel")
+button_del = NodePath("Setting/VBoxContainer/HBoxContainer/ButtonDel")
+select_effect = NodePath("SelectEffect")
+metadata/_custom_type_script = "uid://b4dga4rmnvq0a"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-68, 100)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-84, -116)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qay60")
+
+[node name="Setting" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 52.0
+offset_right = 184.0
+offset_bottom = 76.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 70.0
+
+[node name="GridContainer" type="GridContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Setting/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Emit Signal"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonOk" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+text = "Ok"
+
+[node name="ButtonCancel" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Cancel"
+
+[node name="ButtonDel" type="Button" parent="Setting/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Delete"
+
+[node name="SelectEffect" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_amr2t")
+
+[node name="LEDRed" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 20.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_juikx")
+
+[node name="LEDGreen" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 36.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gookr")
+
+[node name="Pin" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 64.0
+offset_right = 52.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhgcx")
+script = ExtResource("3_uxda2")
+metadata/_custom_type_script = "uid://qmmjgbpogmfi"
+
+[node name="Label" type="Label" parent="Pin"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -4.0
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 10
+text = "Loop"
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(-284, 28.000002)
+scale = Vector2(3.092929, 1.0466988)
+points = PackedVector2Array(93.14673, -14.569241, 86.68037, -18.390778, 86.68037, -68.07078, 77.62746, -91.00001, 9.084015, -91.00001, -1.2621613, -68.07078, -1.2621613, -22.212318, 9.084015, 4.538452, 77.62746, 4.538452, 86.68037, -18.390778)
+width = 2.0
+default_color = Color(0.23137255, 0.08235294, 0, 1)
+round_precision = 12
