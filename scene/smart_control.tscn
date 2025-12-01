@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqqdf0nr3fcx0"]
+[gd_scene load_steps=8 format=3 uid="uid://bqqdf0nr3fcx0"]
 
 [ext_resource type="Script" uid="uid://defngc7hhce8u" path="res://scripts/smart_control.gd" id="1_8koc2"]
 [ext_resource type="StyleBox" uid="uid://csc6q3a1nuhvi" path="res://Styles/select_effect.tres" id="1_wxphp"]
 [ext_resource type="Script" uid="uid://qmmjgbpogmfi" path="res://scripts/pin.gd" id="3_2iytt"]
 [ext_resource type="PackedScene" uid="uid://d3cpntfbhflvr" path="res://scene/warning.tscn" id="4_o3co4"]
+[ext_resource type="Script" uid="uid://bvpdm6kbdplgp" path="res://scripts/http_server.gd" id="5_jdilc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8koc2"]
 bg_color = Color(1, 1, 1, 1)
@@ -558,3 +559,13 @@ text = "81"
 
 [node name="Warning" parent="." instance=ExtResource("4_o3co4")]
 layout_mode = 1
+
+[node name="HTTPRequestLoop" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="HTTPServer" type="Node" parent="."]
+script = ExtResource("5_jdilc")
+metadata/_custom_type_script = "uid://bvpdm6kbdplgp"
+
+[node name="Timer" type="Timer" parent="."]

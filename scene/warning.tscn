@@ -67,6 +67,7 @@ offset_left = -4.0
 offset_top = -53.0
 offset_right = 18.0
 grow_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_etgci")
 
 [node name="Panel" type="Panel" parent="Left"]
@@ -80,7 +81,7 @@ offset_top = -37.0
 offset_right = 22.0
 offset_bottom = -1.0
 grow_vertical = 0
-tooltip_text = "Error: Message"
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_jdilc")
 
 [node name="Right" type="Panel" parent="."]
@@ -93,7 +94,7 @@ offset_left = 18.0
 offset_top = -53.0
 offset_right = 46.0
 grow_vertical = 0
-tooltip_text = "Error: Message"
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ht8en")
 
 [node name="Panel" type="Panel" parent="Right"]
@@ -106,7 +107,7 @@ offset_top = -37.0
 offset_right = 32.0
 offset_bottom = -1.0
 grow_vertical = 0
-tooltip_text = "Error: Message"
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_o3co4")
 
 [node name="Panel" type="Panel" parent="."]
@@ -119,6 +120,7 @@ offset_top = -21.0
 offset_right = 21.0
 offset_bottom = -10.0
 grow_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml8d0")
 
 [node name="Panel2" type="Panel" parent="."]
@@ -131,4 +133,5 @@ offset_top = -9.0
 offset_right = 21.0
 offset_bottom = -4.0
 grow_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_it072")

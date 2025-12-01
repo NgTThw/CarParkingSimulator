@@ -21,3 +21,8 @@ Global="*res://scripts/global.gd"
 [layer_names]
 
 2d_physics/layer_1="Card"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
